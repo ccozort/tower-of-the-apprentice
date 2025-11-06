@@ -103,11 +103,12 @@ script = ExtResource("1_ct4mp")
 
 [node name="FStateMachine" type="Node" parent="."]
 script = ExtResource("5_s4jxa")
+is_log_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_hqtel")
-animation = &"jump"
+animation = &"climb"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

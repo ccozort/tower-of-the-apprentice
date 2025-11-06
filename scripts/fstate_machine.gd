@@ -1,6 +1,6 @@
 class_name FStateMachine extends Node
 
-@export var is_log_enabled: bool = false
+@export var is_log_enabled: bool = true
 
 var current_state: FState
 var states: Dictionary = {}
@@ -23,7 +23,6 @@ func start_machine(init_states: Array[FState]) -> void:
 		print("[%s]: Entering state \"%s\"" % [_parent_node_name, current_state.get_state_name()])
 	
 	current_state.enter()
-
 	
 func _process(delta: float) -> void:
 	current_state.process(delta)
@@ -37,16 +36,17 @@ func transition(new_state_name: String) -> void:
 	var new_state: FState = states.get(new_state_name)
 	var current_state_name = current_state.get_state_name()
 	if new_state == null:
-		push_error("An attempthas been made to transition to a non-existent state %s" % new_state_name)
+		push_error("An attempt has been made to transition to a non-existent state %s" % new_state_name)
 	elif new_state != current_state:
 		current_state.exit()
 		
 		if is_log_enabled:
 			print("[%s]: Exiting state \"%s\"" % [_parent_node_name, current_state.get_state_name()])
+			
 		current_state = states[new_state.get_state_name()]
 		
 		if is_log_enabled:
-			print("[%s]: Exiting state \"%s\"" % [_parent_node_name, current_state.get_state_name()])
+			print("[%s]: Entering state \"%s\"" % [_parent_node_name, current_state.get_state_name()])
 		
 		current_state.enter()
 	else:
