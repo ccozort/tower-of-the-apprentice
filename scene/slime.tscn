@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://0wj0b83rnpxr"]
+
+[ext_resource type="Script" uid="uid://buunahgjc287n" path="res://scripts/slime.gd" id="1_08lxr"]
+[ext_resource type="Texture2D" uid="uid://jn76qemx5rba" path="res://art/slime.png" id="1_bwbrm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08lxr"]
+atlas = ExtResource("1_bwbrm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3a6y"]
+atlas = ExtResource("1_bwbrm")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkhhu"]
+atlas = ExtResource("1_bwbrm")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8ldp"]
+atlas = ExtResource("1_bwbrm")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wkhhu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08lxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3a6y")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkhhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8ldp")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p3a6y"]
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wkhhu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q8ldp"]
+radius = 96.02083
+
+[node name="slime" type="CharacterBody2D"]
+script = ExtResource("1_08lxr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_wkhhu")
+animation = &"move"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_p3a6y")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CircleShape2D_wkhhu")
+
+[node name="detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+shape = SubResource("CircleShape2D_q8ldp")
+
+[connection signal="area_shape_entered" from="hitbox" to="." method="_on_hitbox_area_shape_entered"]
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

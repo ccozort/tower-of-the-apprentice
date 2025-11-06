@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxfky8qewhq33"]
+
+[ext_resource type="Script" uid="uid://bky5jtjadd2py" path="res://scripts/wand.gd" id="1_tqelj"]
+[ext_resource type="Texture2D" uid="uid://bnkwxwestgs6w" path="res://art/wand.png" id="2_tqelj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqelj"]
+size = Vector2(21, 6)
+
+[node name="wand" type="CharacterBody2D"]
+input_pickable = true
+script = ExtResource("1_tqelj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_tqelj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_tqelj")
+region_enabled = true
+region_rect = Rect2(8, 13, 19, 6)
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

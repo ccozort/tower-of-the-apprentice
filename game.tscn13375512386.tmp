@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=4 uid="uid://b5ar68x6mtt4k"]
+
+[ext_resource type="PackedScene" uid="uid://cwx0leap4p7mm" path="res://player.tscn" id="1_80nbo"]
+[ext_resource type="Texture2D" uid="uid://bftjlyenip5to" path="res://assets/sprites/brick_16x16.png" id="1_e2o6t"]
+[ext_resource type="Script" uid="uid://bemnphncshw6j" path="res://game.gd" id="1_feb5d"]
+[ext_resource type="PackedScene" uid="uid://dxfky8qewhq33" path="res://wand.tscn" id="4_fc0e3"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e2o6t"]
+texture = ExtResource("1_e2o6t")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_feb5d"]
+physics_layer_0/collision_layer = 1
+sources/4 = SubResource("TileSetAtlasSource_e2o6t")
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_feb5d")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAOAAcABAAAAAAAAAAPAAcABAAAAAAAAAAQAAcABAAAAAAAAAARAAcABAAAAAAAAAASAAcABAAAAAAAAAATAAcABAAAAAAAAAAUAAcABAAAAAAAAAAVAAcABAAAAAAAAAAWAAcABAAAAAAAAAAWAAYABAAAAAAAAAAXAAYABAAAAAAAAAAXAAcABAAAAAAAAAAYAAcABAAAAAAAAAAUAAgABAAAAAAAAAATAAgABAAAAAAAAAASAAgABAAAAAAAAAARAAgABAAAAAAAAAAQAAgABAAAAAAAAAAPAAgABAAAAAAAAAAOAAgABAAAAAAAAAANAAgABAAAAAAAAAANAAcABAAAAAAAAAANAAYABAAAAAAAAAAMAAYABAAAAAAAAAAMAAcABAAAAAAAAAAMAAgABAAAAAAAAAAKAAgABAAAAAAAAAALAAgABAAAAAAAAAAJAAgABAAAAAAAAAAIAAgABAAAAAAAAAAHAAgABAAAAAAAAAAGAAgABAAAAAAAAAAFAAgABAAAAAAAAAAEAAgABAAAAAAAAAADAAgABAAAAAAAAAACAAgABAAAAAAAAAADAAcABAAAAAAAAAACAAcABAAAAAAAAAABAAcABAAAAAAAAAABAAgABAAAAAAAAAAAAAgABAAAAAAAAAAAAAcABAAAAAAAAAAAAAYABAAAAAAAAAAAAAUABAAAAAAAAAAAAAQABAAAAAAAAAAAAAMABAAAAAAAAAAAAAIABAAAAAAAAAAAAAEABAAAAAAAAAAAAAAABAAAAAAAAAAVAAgABAAAAAAAAAAWAAgABAAAAAAAAAAXAAgABAAAAAAAAAAYAAgABAAAAAAAAAAZAAgABAAAAAAAAAAZAAcABAAAAAAAAAAaAAcABAAAAAAAAAAaAAgABAAAAAAAAAAbAAgABAAAAAAAAAAcAAgABAAAAAAAAAAdAAgABAAAAAAAAAAdAAcABAAAAAAAAAAdAAYABAAAAAAAAAAdAAUABAAAAAAAAAAdAAQABAAAAAAAAAAdAAMABAAAAAAAAAAdAAIABAAAAAAAAAAdAAEABAAAAAAAAAAdAAAABAAAAAAAAAAEAAcABAAAAAAAAAALAAcABAAAAAAAAAA=")
+tile_set = SubResource("TileSet_feb5d")
+
+[node name="player" parent="." instance=ExtResource("1_80nbo")]
+position = Vector2(289, 95)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2(7, -43)
+zoom = Vector2(3, 3)
+
+[node name="wand" parent="." instance=ExtResource("4_fc0e3")]
+position = Vector2(209, 42)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(351, 82)
+
+[connection signal="shoot" from="player" to="." method="_on_player_shoot"]

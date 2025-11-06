@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfu6v4kvxg7mu"]
+
+[ext_resource type="Script" uid="uid://cab63ehr6hslb" path="res://scripts/ball.gd" id="1_h6iok"]
+[ext_resource type="Texture2D" uid="uid://2vb1lgb1nakr" path="res://art/icon.svg" id="2_h45nl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxf0c"]
+size = Vector2(20, 6)
+
+[node name="ball" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_h6iok")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 4.5)
+texture = ExtResource("2_h45nl")
+region_enabled = true
+region_rect = Rect2(1, 0, 127, 126)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_qxf0c")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
