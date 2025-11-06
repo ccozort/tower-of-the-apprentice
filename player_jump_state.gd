@@ -18,7 +18,7 @@ func enter() -> void:
 	if player.is_on_floor():
 		print('player on floor')
 		player.velocity.y = -JUMP_FORCE
-		
+#		boolean handling for jump state
 	_is_jumping = true
 	
 func exit() -> void:
