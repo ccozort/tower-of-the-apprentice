@@ -1,17 +1,17 @@
 [gd_scene load_steps=19 format=4 uid="uid://b5ar68x6mtt4k"]
 
-[ext_resource type="PackedScene" uid="uid://cwx0leap4p7mm" path="res://player/player.tscn" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://cwx0leap4p7mm" path="res://scene/player.tscn" id="1_80nbo"]
 [ext_resource type="Texture2D" uid="uid://bftjlyenip5to" path="res://art/brick_16x16.png" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://bemnphncshw6j" path="res://scripts/game.gd" id="1_feb5d"]
 [ext_resource type="Resource" uid="uid://cuywce2cdmjlw" path="res://inventory/items/apple.tres" id="2_7jktm"]
 [ext_resource type="Texture2D" uid="uid://jn76qemx5rba" path="res://art/slime.png" id="3_17rxn"]
 [ext_resource type="Texture2D" uid="uid://hvu72ifcbkx1" path="res://art/ladder.png" id="3_yq8tf"]
-[ext_resource type="PackedScene" uid="uid://btbnkrqdx5ti7" path="res://inv2/world_item.tscn" id="6_81276"]
 [ext_resource type="PackedScene" uid="uid://mq2m0alaoyhn" path="res://scene/apple_collectible.tscn" id="6_ryrav"]
 [ext_resource type="PackedScene" uid="uid://ba1n1eahq0qdf" path="res://scene/apple_tree.tscn" id="7_qpk70"]
 [ext_resource type="PackedScene" uid="uid://dtc0ijhih4i5b" path="res://scene/heart_containers.tscn" id="8_ll5lq"]
+[ext_resource type="Script" uid="uid://b1ik5fi31bu6b" path="res://inv/inventory.gd" id="10_yq8tf"]
+[ext_resource type="PackedScene" uid="uid://djs8j6qtopqu1" path="res://inv/hotdog.tscn" id="11_ym5sv"]
 [ext_resource type="Script" uid="uid://ctgc1sfya0ybq" path="res://scene/hand.gd" id="12_sng2h"]
-[ext_resource type="PackedScene" uid="uid://0wj0b83rnpxr" path="res://scene/slime.tscn" id="13_5g16k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_17rxn"]
 texture = ExtResource("3_17rxn")
@@ -53,8 +53,6 @@ script = ExtResource("1_feb5d")
 item = ExtResource("2_7jktm")
 
 [node name="HUD" type="CanvasLayer" parent="."]
-scale = Vector2(2, 2)
-transform = Transform2D(2, 0, 0, 2, 0, 0)
 
 [node name="heart_containers" parent="HUD" instance=ExtResource("8_ll5lq")]
 texture_filter = 1
@@ -70,36 +68,29 @@ offset_right = 1124.0
 offset_bottom = 95.0
 show_percentage = false
 
-[node name="Hand" type="Node2D" parent="."]
-position = Vector2(217, -16)
-script = ExtResource("12_sng2h")
-
-[node name="Item_icon" type="Sprite2D" parent="Hand"]
-z_index = 4
-z_as_relative = false
-
 [node name="Ouchies" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAPAAYAAAAAAAAAAAADAAUAAQAAAAAAAAADAAYAAQAAAAEAAAAEAAUAAQABAAAAAAAEAAYAAQABAAEAAAA=")
 tile_set = SubResource("TileSet_sng2h")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1
-tile_map_data = PackedByteArray("AAAOAAcABAAAAAAAAAAPAAcABAAAAAAAAAAQAAcABAAAAAAAAAARAAcABAAAAAAAAAASAAcABAAAAAAAAAATAAcABAAAAAAAAAAUAAcABAAAAAAAAAAVAAcABAAAAAAAAAAWAAcABAAAAAAAAAAWAAYABAAAAAAAAAAXAAYABAAAAAAAAAAXAAcABAAAAAAAAAAYAAcABAAAAAAAAAAUAAgABAAAAAAAAAATAAgABAAAAAAAAAASAAgABAAAAAAAAAARAAgABAAAAAAAAAAQAAgABAAAAAAAAAAPAAgABAAAAAAAAAAOAAgABAAAAAAAAAANAAgABAAAAAAAAAANAAcABAAAAAAAAAANAAYABAAAAAAAAAAMAAYABAAAAAAAAAAMAAcABAAAAAAAAAAMAAgABAAAAAAAAAAKAAgABAAAAAAAAAALAAgABAAAAAAAAAAJAAgABAAAAAAAAAAIAAgABAAAAAAAAAAHAAgABAAAAAAAAAAGAAgABAAAAAAAAAAFAAgABAAAAAAAAAAEAAgABAAAAAAAAAADAAgABAAAAAAAAAACAAgABAAAAAAAAAADAAcABAAAAAAAAAACAAcABAAAAAAAAAABAAcABAAAAAAAAAABAAgABAAAAAAAAAAAAAgABAAAAAAAAAAAAAcABAAAAAAAAAAAAAYABAAAAAAAAAAAAAUABAAAAAAAAAAAAAQABAAAAAAAAAAAAAMABAAAAAAAAAAAAAIABAAAAAAAAAAAAAEABAAAAAAAAAAAAAAABAAAAAAAAAAVAAgABAAAAAAAAAAWAAgABAAAAAAAAAAXAAgABAAAAAAAAAAYAAgABAAAAAAAAAAZAAgABAAAAAAAAAAZAAcABAAAAAAAAAAaAAcABAAAAAAAAAAaAAgABAAAAAAAAAAbAAgABAAAAAAAAAAcAAgABAAAAAAAAAAdAAgABAAAAAAAAAAdAAcABAAAAAAAAAAdAAYABAAAAAAAAAAdAAUABAAAAAAAAAAdAAQABAAAAAAAAAAdAAMABAAAAAAAAAAdAAIABAAAAAAAAAAdAAEABAAAAAAAAAAdAAAABAAAAAAAAAAEAAcABAAAAAAAAAALAAcABAAAAAAAAAABAAAABAAAAAAAAAACAAAABAAAAAAAAAAEAAAABAAAAAAAAAAFAAAABAAAAAAAAAAGAAAABAAAAAAAAAAHAAAABAAAAAAAAAAIAAAABAAAAAAAAAAJAAAABAAAAAAAAAALAAAABAAAAAAAAAAMAAAABAAAAAAAAAANAAAABAAAAAAAAAAOAAAABAAAAAAAAAAPAAAABAAAAAAAAAAQAAAABAAAAAAAAAARAAAABAAAAAAAAAASAAAABAAAAAAAAAATAAAABAAAAAAAAAAUAAAABAAAAAAAAAAVAAAABAAAAAAAAAAVAAEABAAAAAAAAAAWAAEABAAAAAAAAAAWAAAABAAAAAAAAAAXAAAABAAAAAAAAAAYAAAABAAAAAAAAAAZAAAABAAAAAAAAAAaAAAABAAAAAAAAAAbAAAABAAAAAAAAAAcAAAABAAAAAAAAAABAP//BAAAAAAAAAABAP7/BAAAAAAAAAABAP3/BAAAAAAAAAABAPz/BAAAAAAAAAABAPv/BAAAAAAAAAACAPv/BAAAAAAAAAADAPv/BAAAAAAAAAAEAPv/BAAAAAAAAAAFAPv/BAAAAAAAAAAFAPr/BAAAAAAAAAAGAPr/BAAAAAAAAAAHAPr/BAAAAAAAAAAIAPr/BAAAAAAAAAAJAPr/BAAAAAAAAAAKAPr/BAAAAAAAAAALAPr/BAAAAAAAAAAMAPr/BAAAAAAAAAANAPr/BAAAAAAAAAAOAPr/BAAAAAAAAAAPAPr/BAAAAAAAAAAQAPr/BAAAAAAAAAARAPr/BAAAAAAAAAASAPr/BAAAAAAAAAATAPr/BAAAAAAAAAAUAPr/BAAAAAAAAAAVAPr/BAAAAAAAAAAWAPr/BAAAAAAAAAAXAPr/BAAAAAAAAAAcAP//BAAAAAAAAAAcAP7/BAAAAAAAAAAcAP3/BAAAAAAAAAAcAPz/BAAAAAAAAAAcAPv/BAAAAAAAAAAbAPv/BAAAAAAAAAAaAPv/BAAAAAAAAAAZAPv/BAAAAAAAAAAYAPv/BAAAAAAAAAAXAPv/BAAAAAAAAAAGAPv/BAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAOAAcABAAAAAAAAAAPAAcABAAAAAAAAAAQAAcABAAAAAAAAAARAAcABAAAAAAAAAASAAcABAAAAAAAAAATAAcABAAAAAAAAAAUAAcABAAAAAAAAAAVAAcABAAAAAAAAAAWAAcABAAAAAAAAAAWAAYABAAAAAAAAAAXAAYABAAAAAAAAAAXAAcABAAAAAAAAAAYAAcABAAAAAAAAAAUAAgABAAAAAAAAAATAAgABAAAAAAAAAASAAgABAAAAAAAAAARAAgABAAAAAAAAAAQAAgABAAAAAAAAAAPAAgABAAAAAAAAAAOAAgABAAAAAAAAAANAAgABAAAAAAAAAANAAcABAAAAAAAAAANAAYABAAAAAAAAAAMAAYABAAAAAAAAAAMAAcABAAAAAAAAAAMAAgABAAAAAAAAAAKAAgABAAAAAAAAAALAAgABAAAAAAAAAAJAAgABAAAAAAAAAAIAAgABAAAAAAAAAAHAAgABAAAAAAAAAAGAAgABAAAAAAAAAAFAAgABAAAAAAAAAAEAAgABAAAAAAAAAADAAgABAAAAAAAAAACAAgABAAAAAAAAAADAAcABAAAAAAAAAACAAcABAAAAAAAAAABAAcABAAAAAAAAAABAAgABAAAAAAAAAAAAAgABAAAAAAAAAAAAAcABAAAAAAAAAAAAAYABAAAAAAAAAAAAAUABAAAAAAAAAAAAAQABAAAAAAAAAAAAAMABAAAAAAAAAAAAAIABAAAAAAAAAAAAAEABAAAAAAAAAAAAAAABAAAAAAAAAAVAAgABAAAAAAAAAAWAAgABAAAAAAAAAAXAAgABAAAAAAAAAAYAAgABAAAAAAAAAAZAAgABAAAAAAAAAAZAAcABAAAAAAAAAAaAAcABAAAAAAAAAAaAAgABAAAAAAAAAAbAAgABAAAAAAAAAAcAAgABAAAAAAAAAAdAAgABAAAAAAAAAAdAAcABAAAAAAAAAAdAAYABAAAAAAAAAAdAAUABAAAAAAAAAAdAAQABAAAAAAAAAAdAAMABAAAAAAAAAAdAAIABAAAAAAAAAAdAAEABAAAAAAAAAAdAAAABAAAAAAAAAAEAAcABAAAAAAAAAALAAcABAAAAAAAAAAKAAcAAAAAAAAAAAAKAAYAAAAAAAAAAAAKAAUAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAMAAAAAAAAAAAAKAAIAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_feb5d")
 
 [node name="Ladders" type="TileMapLayer" parent="."]
 texture_filter = 1
-tile_map_data = PackedByteArray("AAAKAAcAAAAAAAAAAAAKAAYAAAAAAAAAAAAKAAUAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAMAAAAAAAAAAAAKAAIAAAAAAAAAAAADAAYAAAAAAAAAAAADAAUAAAAAAAAAAAADAAQAAAAAAAAAAAADAAMAAAAAAAAAAAADAAIAAAAAAAAAAAADAAEAAAAAAAAAAAADAAAAAAAAAAAAAAAKAAEAAAAAAAAAAAAKAAAAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAKAAcAAAAAAAAAAAAKAAYAAAAAAAAAAAAKAAUAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAMAAAAAAAAAAAAKAAIAAAAAAAAAAAADAAYAAAAAAAAAAAADAAUAAAAAAAAAAAADAAQAAAAAAAAAAAADAAMAAAAAAAAAAAADAAIAAAAAAAAAAAADAAEAAAAAAAAAAAADAAAAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_ym5sv")
 
 [node name="player" parent="." instance=ExtResource("1_80nbo")]
-position = Vector2(293, 64)
+position = Vector2(289, 95)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
-zoom = Vector2(2, 2)
+position = Vector2(7, -43)
+zoom = Vector2(3, 3)
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(238, 37)
+position = Vector2(279, -31)
 
 [node name="apple_tree" parent="." instance=ExtResource("7_qpk70")]
 position = Vector2(137, 112)
@@ -110,7 +101,33 @@ position = Vector2(204, 80)
 [node name="apple_tree2" parent="apple_tree2" instance=ExtResource("7_qpk70")]
 position = Vector2(207, 15)
 
+[node name="inventory" type="Node2D" parent="."]
+script = ExtResource("10_yq8tf")
+
+[node name="Hand" type="Node2D" parent="."]
+script = ExtResource("12_sng2h")
+
+[node name="Item_icon" type="Sprite2D" parent="Hand"]
+
 [node name="Collectibles" type="Node" parent="."]
+
+[node name="Hotdog" parent="Collectibles" instance=ExtResource("11_ym5sv")]
+position = Vector2(198, 39)
+
+[node name="Hotdog2" parent="Collectibles" instance=ExtResource("11_ym5sv")]
+position = Vector2(167, 15)
+
+[node name="Hotdog3" parent="Collectibles" instance=ExtResource("11_ym5sv")]
+position = Vector2(223, 70)
+
+[node name="Hotdog4" parent="Collectibles" instance=ExtResource("11_ym5sv")]
+position = Vector2(117, 58)
+
+[node name="Hotdog5" parent="Collectibles" instance=ExtResource("11_ym5sv")]
+position = Vector2(207, 12)
+
+[node name="Hotdog6" parent="Collectibles" instance=ExtResource("11_ym5sv")]
+position = Vector2(134, 23)
 
 [node name="apple_collectible" parent="Collectibles" instance=ExtResource("6_ryrav")]
 position = Vector2(32, 102)
@@ -123,9 +140,3 @@ position = Vector2(445, 115)
 
 [node name="apple_collectible4" parent="Collectibles" instance=ExtResource("6_ryrav")]
 position = Vector2(377, 72)
-
-[node name="slime" parent="." instance=ExtResource("13_5g16k")]
-position = Vector2(81, -18)
-
-[node name="world_item" parent="." instance=ExtResource("6_81276")]
-position = Vector2(242, 100)

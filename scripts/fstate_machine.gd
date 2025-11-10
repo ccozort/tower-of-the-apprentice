@@ -50,4 +50,4 @@ func transition(new_state_name: String) -> void:
 		
 		current_state.enter()
 	else:
-		push_warning("An attempt to transition to the current state has beedn made.  Ignoring request.")
+		push_warning("An attempt to transition to the current state has been made.  Ignoring request.")

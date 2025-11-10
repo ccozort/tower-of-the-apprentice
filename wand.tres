@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cm1cx8quyvquf"]
+
+[ext_resource type="Script" uid="uid://cntud2tdb2kh2" path="res://inv2/item_data.gd" id="1_7ej58"]
+[ext_resource type="Texture2D" uid="uid://bnkwxwestgs6w" path="res://art/wand.png" id="1_brl0k"]
+
+[resource]
+script = ExtResource("1_7ej58")
+item_name = "Wand"
+icon = ExtResource("1_brl0k")
+image = ExtResource("1_brl0k")
+metadata/_custom_type_script = "uid://cntud2tdb2kh2"

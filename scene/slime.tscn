@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://0wj0b83rnpxr"]
+[gd_scene load_steps=12 format=3 uid="uid://0wj0b83rnpxr"]
 
 [ext_resource type="Script" uid="uid://buunahgjc287n" path="res://scripts/slime.gd" id="1_08lxr"]
 [ext_resource type="Texture2D" uid="uid://jn76qemx5rba" path="res://art/slime.png" id="1_bwbrm"]
@@ -52,6 +52,9 @@ radius = 13.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_q8ldp"]
 radius = 96.02083
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_08lxr"]
+radius = 16.0
+
 [node name="slime" type="CharacterBody2D"]
 script = ExtResource("1_08lxr")
 
@@ -74,6 +77,12 @@ shape = SubResource("CircleShape2D_wkhhu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
 shape = SubResource("CircleShape2D_q8ldp")
 
+[node name="mouse_collide" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mouse_collide"]
+shape = SubResource("CircleShape2D_08lxr")
+
 [connection signal="area_shape_entered" from="hitbox" to="." method="_on_hitbox_area_shape_entered"]
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
+[connection signal="mouse_entered" from="mouse_collide" to="." method="_on_mouse_collide_mouse_entered"]

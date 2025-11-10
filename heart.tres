@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://d2slykgvjrrei"]
+
+[ext_resource type="Script" uid="uid://cntud2tdb2kh2" path="res://inv2/item_data.gd" id="1_58r78"]
+[ext_resource type="Texture2D" uid="uid://dwwl2kvjaokqd" path="res://art/heart_1.png" id="1_jp0mh"]
+
+[resource]
+script = ExtResource("1_58r78")
+item_name = "Heart"
+icon = ExtResource("1_jp0mh")
+image = ExtResource("1_jp0mh")
+metadata/_custom_type_script = "uid://cntud2tdb2kh2"

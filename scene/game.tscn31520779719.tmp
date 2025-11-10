@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://b5ar68x6mtt4k"]
+[gd_scene load_steps=21 format=4 uid="uid://b5ar68x6mtt4k"]
 
 [ext_resource type="PackedScene" uid="uid://cwx0leap4p7mm" path="res://player/player.tscn" id="1_80nbo"]
 [ext_resource type="Texture2D" uid="uid://bftjlyenip5to" path="res://art/brick_16x16.png" id="1_e2o6t"]
@@ -6,10 +6,12 @@
 [ext_resource type="Resource" uid="uid://cuywce2cdmjlw" path="res://inventory/items/apple.tres" id="2_7jktm"]
 [ext_resource type="Texture2D" uid="uid://jn76qemx5rba" path="res://art/slime.png" id="3_17rxn"]
 [ext_resource type="Texture2D" uid="uid://hvu72ifcbkx1" path="res://art/ladder.png" id="3_yq8tf"]
-[ext_resource type="PackedScene" uid="uid://btbnkrqdx5ti7" path="res://inv2/world_item.tscn" id="6_81276"]
+[ext_resource type="PackedScene" uid="uid://btbnkrqdx5ti7" path="res://world_item.tscn" id="6_81276"]
 [ext_resource type="PackedScene" uid="uid://mq2m0alaoyhn" path="res://scene/apple_collectible.tscn" id="6_ryrav"]
 [ext_resource type="PackedScene" uid="uid://ba1n1eahq0qdf" path="res://scene/apple_tree.tscn" id="7_qpk70"]
 [ext_resource type="PackedScene" uid="uid://dtc0ijhih4i5b" path="res://scene/heart_containers.tscn" id="8_ll5lq"]
+[ext_resource type="PackedScene" uid="uid://cgdvcmrrlm2uh" path="res://inventory_ui_control.tscn" id="11_ym5sv"]
+[ext_resource type="Script" uid="uid://dyaplypl0plg" path="res://scene/world_drop_area.gd" id="12_5g16k"]
 [ext_resource type="Script" uid="uid://ctgc1sfya0ybq" path="res://scene/hand.gd" id="12_sng2h"]
 [ext_resource type="PackedScene" uid="uid://0wj0b83rnpxr" path="res://scene/slime.tscn" id="13_5g16k"]
 
@@ -52,6 +54,22 @@ sources/0 = SubResource("TileSetAtlasSource_yq8tf")
 script = ExtResource("1_feb5d")
 item = ExtResource("2_7jktm")
 
+[node name="WorldDropArea" type="Control" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -39.0
+offset_top = -225.00002
+offset_right = 181.81168
+offset_bottom = -125.000015
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.7580063, 5.857077)
+mouse_filter = 2
+script = ExtResource("12_5g16k")
+
 [node name="HUD" type="CanvasLayer" parent="."]
 scale = Vector2(2, 2)
 transform = Transform2D(2, 0, 0, 2, 0, 0)
@@ -69,6 +87,12 @@ offset_top = 68.0
 offset_right = 1124.0
 offset_bottom = 95.0
 show_percentage = false
+
+[node name="inventory_ui_control" parent="HUD" instance=ExtResource("11_ym5sv")]
+offset_left = 199.0
+offset_top = 251.0
+offset_right = -773.0
+offset_bottom = -334.0
 
 [node name="Hand" type="Node2D" parent="."]
 position = Vector2(217, -16)
@@ -129,3 +153,5 @@ position = Vector2(81, -18)
 
 [node name="world_item" parent="." instance=ExtResource("6_81276")]
 position = Vector2(242, 100)
+
+[editable path="HUD/inventory_ui_control"]

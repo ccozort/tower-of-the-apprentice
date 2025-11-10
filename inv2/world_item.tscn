@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://btbnkrqdx5ti7"]
+
+[ext_resource type="Script" uid="uid://bky5jtjadd2py" path="res://scripts/wand.gd" id="1_14yq1"]
+[ext_resource type="Texture2D" uid="uid://cs1a6v08sdj5n" path="res://art/apple.png" id="2_t53tl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_myfvb"]
+radius = 23.194826
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_11hmn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t53tl"]
+
+[node name="world_item" type="CharacterBody2D"]
+input_pickable = true
+script = ExtResource("1_14yq1")
+
+[node name="PlayerCollide" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollide"]
+shape = SubResource("CircleShape2D_myfvb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+shape = SubResource("CircleShape2D_11hmn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_t53tl")
+
+[node name="MouseCollider" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseCollider"]
+shape = SubResource("CircleShape2D_t53tl")
+
+[connection signal="body_entered" from="PlayerCollide" to="." method="_on_player_collide_body_entered"]
+[connection signal="mouse_entered" from="MouseCollider" to="." method="_on_mouse_collider_mouse_entered"]
+[connection signal="mouse_exited" from="MouseCollider" to="." method="_on_mouse_collider_mouse_exited"]

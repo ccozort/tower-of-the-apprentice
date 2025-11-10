@@ -47,3 +47,8 @@ func death():
 	$AnimatedSprite2D.play("death")
 	await get_tree().create_timer(1).timeout
 	queue_free()
+
+
+
+func _on_mouse_collide_mouse_entered() -> void:
+	print("mouse entered slime")

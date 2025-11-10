@@ -1,0 +1,265 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgdvcmrrlm2uh"]
+
+[ext_resource type="Script" uid="uid://dapsdux6n2lis" path="res://inv2/inventiry_ui_control.gd" id="1_f1gft"]
+[ext_resource type="Script" uid="uid://c40qd3k7dtkwn" path="res://inv2/item_slot.gd" id="2_f0lxi"]
+[ext_resource type="Texture2D" uid="uid://cs1a6v08sdj5n" path="res://art/apple.png" id="3_aunes"]
+[ext_resource type="Resource" uid="uid://d2slykgvjrrei" path="res://heart.tres" id="4_aunes"]
+[ext_resource type="Resource" uid="uid://cm1cx8quyvquf" path="res://wand.tres" id="6_qy4i5"]
+
+[node name="inventory_ui_control" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 373.0
+offset_top = 226.0
+offset_right = -599.0
+offset_bottom = -359.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f1gft")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 6
+
+[node name="ItemSlot" type="Panel" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+script = ExtResource("2_f0lxi")
+item = ExtResource("4_aunes")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/GridContainer/ItemSlot"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.02
+anchor_right = 0.9
+anchor_bottom = 0.86
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_aunes")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemSlot2" type="Panel" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+script = ExtResource("2_f0lxi")
+item = ExtResource("6_qy4i5")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/GridContainer/ItemSlot2"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.02
+anchor_right = 0.9
+anchor_bottom = 0.86
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_aunes")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemSlot3" type="Panel" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+script = ExtResource("2_f0lxi")
+item = ExtResource("4_aunes")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/GridContainer/ItemSlot3"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.02
+anchor_right = 0.9
+anchor_bottom = 0.86
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_aunes")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemSlot4" type="Panel" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+script = ExtResource("2_f0lxi")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/GridContainer/ItemSlot4"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.02
+anchor_right = 0.9
+anchor_bottom = 0.86
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_aunes")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemSlot5" type="Panel" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+script = ExtResource("2_f0lxi")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/GridContainer/ItemSlot5"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.02
+anchor_right = 0.9
+anchor_bottom = 0.86
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_aunes")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemSlot6" type="Panel" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+script = ExtResource("2_f0lxi")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/GridContainer/ItemSlot6"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.02
+anchor_right = 0.9
+anchor_bottom = 0.86
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_aunes")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemSlot7" type="Panel" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+script = ExtResource("2_f0lxi")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/GridContainer/ItemSlot7"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.02
+anchor_right = 0.9
+anchor_bottom = 0.86
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_aunes")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemSlot8" type="Panel" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+script = ExtResource("2_f0lxi")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/GridContainer/ItemSlot8"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.02
+anchor_right = 0.9
+anchor_bottom = 0.86
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_aunes")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemSlot9" type="Panel" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+script = ExtResource("2_f0lxi")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/GridContainer/ItemSlot9"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.02
+anchor_right = 0.9
+anchor_bottom = 0.86
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_aunes")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemSlot10" type="Panel" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+script = ExtResource("2_f0lxi")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/GridContainer/ItemSlot10"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.02
+anchor_right = 0.9
+anchor_bottom = 0.86
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_aunes")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemSlot11" type="Panel" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+script = ExtResource("2_f0lxi")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/GridContainer/ItemSlot11"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.02
+anchor_right = 0.9
+anchor_bottom = 0.86
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_aunes")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemSlot12" type="Panel" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+script = ExtResource("2_f0lxi")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/GridContainer/ItemSlot12"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.02
+anchor_right = 0.9
+anchor_bottom = 0.86
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_aunes")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true

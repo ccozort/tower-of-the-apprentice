@@ -16,9 +16,11 @@ func _ready():
 func update_slots():
 	for i in range(min(inv.slots.size(), slots.size())):
 		slots[i].update(inv.slots[i])
+		print('inventory slots updated')
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("inventory"):
+		update_slots()
 		print('i')
 		if is_open:
 			close()

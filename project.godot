@@ -15,6 +15,10 @@ run/main_scene="uid://b5ar68x6mtt4k"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://art/icon.svg"
 
+[autoload]
+
+PlayerStats="*res://singleton/player_stats.gd"
+
 [display]
 
 window/vsync/vsync_mode=0
@@ -26,6 +30,10 @@ project/assembly_name="Tower of the Apprentice"
 [global_group]
 
 player="group for player"
+
+[gui]
+
+theme/custom="uid://c4hmxspx1ik01"
 
 [input]
 

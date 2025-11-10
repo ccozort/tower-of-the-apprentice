@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7l728pbwgb7u"]
+
+[ext_resource type="Script" uid="uid://komwjjoq5a6s" path="res://inv/item_slot.gd" id="1_xs2ts"]
+[ext_resource type="Texture2D" uid="uid://7is5jjdruyt1" path="res://art/inv_slot.png" id="2_32yy5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gdww3"]
+font_size = 10
+
+[node name="ItemSlot" type="Node2D"]
+script = ExtResource("1_xs2ts")
+
+[node name="item_count_label" type="Label" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+z_index = 1
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 14.0
+offset_bottom = 17.0
+theme_override_font_sizes/font_size = 13
+text = "0"
+label_settings = SubResource("LabelSettings_gdww3")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Item_icon" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, 8)
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+offset_right = 16.0
+offset_bottom = 16.0
+icon_alignment = 1
+expand_icon = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Button"]
+z_index = -1
+position = Vector2(8, 8)
+texture = ExtResource("2_32yy5")
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
